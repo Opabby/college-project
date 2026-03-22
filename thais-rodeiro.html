@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<!--
-  ========================================================
-  Portfólio Pessoal — Thaís Rodeiro
-  Atividade Prática — Aplicação Web e Móveis
-  UNINTER — 2026/A — Fase I
-
-  Tecnologias: HTML5, CSS3, JavaScript puro
-  Arquivo nomeado com o nome da autora conforme exigido.
-  ========================================================
--->
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -18,24 +8,18 @@
 </head>
 <body>
 
-  <!-- ================================================
-       CABEÇALHO E MENU DE NAVEGAÇÃO
-       Fixo no topo — visível em todas as seções
-       ================================================ -->
   <header id="topo">
     <nav class="navbar" role="navigation" aria-label="Menu principal">
       <div class="nav-logo">
         <a href="#sobre">Thaís Rodeiro</a>
       </div>
 
-      <!-- Botão hambúrguer para telas pequenas -->
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <!-- Links de navegação — cada item aponta para um id de seção -->
       <ul class="nav-links" id="navLinks" role="list">
         <li><a href="#sobre"     class="nav-link">Sobre Mim</a></li>
         <li><a href="#formacao"  class="nav-link">Formação</a></li>
@@ -45,16 +29,11 @@
     </nav>
   </header>
 
-  <!-- ================================================
-       SEÇÃO 1 — SOBRE MIM
-       Apresentação, informações pessoais e hobbies
-       ================================================ -->
   <section id="sobre" class="secao secao-clara">
     <div class="container">
       <h2 class="secao-titulo">Sobre Mim</h2>
       <div class="sobre-grid">
 
-        <!-- Foto de perfil -->
         <div class="sobre-foto">
           <img
             src="img/profile.jpg"
@@ -63,7 +42,6 @@
           />
         </div>
 
-        <!-- Texto de apresentação -->
         <div class="sobre-texto">
           <h3>Olá, me chamo <span class="destaque">Thaís Rodeiro</span>!</h3>
           <p>
@@ -78,7 +56,6 @@
             a lógica de programação para construir produtos mais acessíveis e globalizados.
           </p>
 
-          <!-- Informações pessoais em lista -->
           <ul class="info-lista">
             <li><strong>Nome:</strong> Thaís Rodeiro</li>
             <li><strong>Idade:</strong> 27 anos</li>
@@ -88,7 +65,6 @@
             <li><strong>GitHub:</strong> <a href="https://github.com/Opabby" target="_blank" rel="noopener noreferrer" class="link-inline">github.com/Opabby</a></li>
           </ul>
 
-          <!-- Hobbies -->
           <h4>Meus Hobbies</h4>
           <div class="hobbies-grid">
             <div class="hobby-card">💻 Programação</div>
@@ -104,15 +80,10 @@
     </div>
   </section>
 
-  <!-- ================================================
-       SEÇÃO 2 — FORMAÇÃO
-       Cursos, idiomas e histórico educacional
-       ================================================ -->
   <section id="formacao" class="secao secao-escura">
     <div class="container">
       <h2 class="secao-titulo">Formação</h2>
 
-      <!-- Histórico educacional -->
       <h3 class="sub-titulo">Histórico Educacional</h3>
       <div class="timeline">
 
@@ -136,11 +107,9 @@
 
       </div>
 
-      <!-- Experiência Profissional -->
       <h3 class="sub-titulo">Experiência Profissional</h3>
       <div class="timeline">
 
-        <!-- Posição atual -->
         <div class="timeline-item">
           <div class="timeline-data">Nov/2025 — Presente</div>
           <div class="timeline-conteudo">
@@ -205,7 +174,6 @@
 
       </div>
 
-      <!-- Certificações e cursos complementares -->
       <h3 class="sub-titulo">Certificações</h3>
       <div class="cards-grid">
 
@@ -232,7 +200,6 @@
 
       </div>
 
-      <!-- Competências técnicas -->
       <h3 class="sub-titulo">Competências Técnicas</h3>
       <div class="skills-grid">
         <div class="skill-grupo">
@@ -274,7 +241,6 @@
         </div>
       </div>
 
-      <!-- Idiomas -->
       <h3 class="sub-titulo">Idiomas</h3>
       <div class="idiomas-grid">
 
@@ -330,20 +296,14 @@
     </div>
   </section>
 
-  <!-- ================================================
-       SEÇÃO 3 — PORTFÓLIO
-       Projetos e trabalhos — GitHub
-       ================================================ -->
   <section id="portfolio" class="secao secao-clara">
     <div class="container">
       <h2 class="secao-titulo">Portfólio</h2>
       <p class="secao-subtitulo">Meus projetos ficam no GitHub — venha conferir!</p>
 
-      <!-- Card de destaque do GitHub -->
       <div class="github-destaque">
         <div class="github-info">
           <div class="github-avatar">
-            <!-- Ícone do GitHub em SVG puro — sem dependências externas -->
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="48" height="48">
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
             </svg>
@@ -374,7 +334,6 @@
         </a>
       </div>
 
-      <!-- Cards de áreas de trabalho -->
       <h3 class="sub-titulo-claro">Áreas de Atuação</h3>
       <div class="portfolio-grid">
 
@@ -446,23 +405,17 @@
     </div>
   </section>
 
-  <!-- ================================================
-       SEÇÃO 4 — CONTATO
-       Formulário com validação em JavaScript
-       ================================================ -->
   <section id="contato" class="secao secao-escura">
     <div class="container">
       <h2 class="secao-titulo">Contato</h2>
       <p class="secao-subtitulo">Tem alguma proposta ou quer bater um papo sobre tecnologia? Manda mensagem!</p>
 
-      <!-- Mensagem de sucesso — exibida via JavaScript após envio -->
       <div id="mensagemSucesso" class="mensagem-sucesso" role="alert" aria-live="polite" hidden>
         ✅ Mensagem enviada com sucesso! Entrarei em contato em breve.
       </div>
 
       <form id="formContato" class="form-contato" novalidate>
 
-        <!-- Campo: Nome -->
         <div class="campo-grupo">
           <label for="nome">Nome completo <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
           <input
@@ -476,7 +429,6 @@
           <span class="erro-msg" id="erroNome" role="alert" aria-live="assertive"></span>
         </div>
 
-        <!-- Campo: E-mail -->
         <div class="campo-grupo">
           <label for="email">E-mail <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
           <input
@@ -490,7 +442,6 @@
           <span class="erro-msg" id="erroEmail" role="alert" aria-live="assertive"></span>
         </div>
 
-        <!-- Campo: Mensagem -->
         <div class="campo-grupo">
           <label for="mensagem">Mensagem <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
           <textarea
@@ -503,7 +454,6 @@
           <span class="erro-msg" id="erroMensagem" role="alert" aria-live="assertive"></span>
         </div>
 
-        <!-- Botão de envio -->
         <button type="submit" class="btn-enviar" id="btnEnviar">
           Enviar Mensagem
         </button>
@@ -512,9 +462,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       RODAPÉ
-       ================================================ -->
   <footer class="rodape">
     <div class="container">
       <p>&copy; 2026 Thaís Rodeiro — Todos os direitos reservados.</p>
@@ -522,7 +469,6 @@
     </div>
   </footer>
 
-  <!-- Script principal carregado ao final do body -->
   <script src="js/main.js"></script>
 </body>
 </html>
