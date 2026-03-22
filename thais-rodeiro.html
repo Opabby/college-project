@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!--
+  ========================================================
+  Portfólio Pessoal — Thaís Rodeiro
+  Atividade Prática — Aplicação Web e Móveis
+  UNINTER — 2026/A — Fase I
+
+  Tecnologias: HTML5, CSS3, JavaScript puro
+  Arquivo nomeado com o nome da autora conforme exigido.
+  ========================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thaís Rodeiro — Portfólio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================================================
+       CABEÇALHO E MENU DE NAVEGAÇÃO
+       Fixo no topo — visível em todas as seções
+       ================================================ -->
+  <header id="topo">
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <div class="nav-logo">
+        <a href="#sobre">Thaís Rodeiro</a>
+      </div>
+
+      <!-- Botão hambúrguer para telas pequenas -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Links de navegação — cada item aponta para um id de seção -->
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#sobre"     class="nav-link">Sobre Mim</a></li>
+        <li><a href="#formacao"  class="nav-link">Formação</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#contato"   class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       SEÇÃO 1 — SOBRE MIM
+       Apresentação, informações pessoais e hobbies
+       ================================================ -->
+  <section id="sobre" class="secao secao-clara">
+    <div class="container">
+      <h2 class="secao-titulo">Sobre Mim</h2>
+      <div class="sobre-grid">
+
+        <!-- Foto de perfil -->
+        <div class="sobre-foto">
+          <img
+            src="img/profile.jpg"
+            alt="Foto de perfil de Thaís Rodeiro"
+            class="foto-perfil"
+          />
+        </div>
+
+        <!-- Texto de apresentação -->
+        <div class="sobre-texto">
+          <h3>Olá, me chamo <span class="destaque">Thaís Rodeiro</span>!</h3>
+          <p>
+            Sou Desenvolvedora Fullstack com 3+ anos de experiência, especializada em
+            JavaScript, Node.js e React.js. Tenho paixão por criar soluções digitais de impacto
+            social — já contribuí para plataformas que atendem mais de 20.000 usuários e
+            sistemas com 99,9% de uptime.
+          </p>
+          <p>
+            Atualmente curso Engenharia de Software pela UNINTER e sou AWS Certified Cloud
+            Practitioner. Combino minha formação em Línguas Estrangeiras Aplicadas (UnB) com
+            a lógica de programação para construir produtos mais acessíveis e globalizados.
+          </p>
+
+          <!-- Informações pessoais em lista -->
+          <ul class="info-lista">
+            <li><strong>Nome:</strong> Thaís Rodeiro</li>
+            <li><strong>Idade:</strong> 27 anos</li>
+            <li><strong>Localização:</strong> Itabirito — MG</li>
+            <li><strong>E-mail:</strong> opabby82@gmail.com</li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/thaisrodeiro/" target="_blank" rel="noopener noreferrer" class="link-inline">linkedin.com/in/thaisrodeiro</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Opabby" target="_blank" rel="noopener noreferrer" class="link-inline">github.com/Opabby</a></li>
+          </ul>
+
+          <!-- Hobbies -->
+          <h4>Meus Hobbies</h4>
+          <div class="hobbies-grid">
+            <div class="hobby-card">💻 Programação</div>
+            <div class="hobby-card">📚 Leitura</div>
+            <div class="hobby-card">🎮 Games</div>
+            <div class="hobby-card">🎸 Música</div>
+            <div class="hobby-card">🚴 Ciclismo</div>
+            <div class="hobby-card">🎬 Cinema</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SEÇÃO 2 — FORMAÇÃO
+       Cursos, idiomas e histórico educacional
+       ================================================ -->
+  <section id="formacao" class="secao secao-escura">
+    <div class="container">
+      <h2 class="secao-titulo">Formação</h2>
+
+      <!-- Histórico educacional -->
+      <h3 class="sub-titulo">Histórico Educacional</h3>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-data">2024 — atual</div>
+          <div class="timeline-conteudo">
+            <h4>Bacharelado em Engenharia de Software</h4>
+            <p class="instituicao">UNINTER — Centro Universitário Internacional</p>
+            <p>Graduação com foco em desenvolvimento de software, arquitetura de sistemas, boas práticas de engenharia e metodologias ágeis.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-data">2016 — 2022</div>
+          <div class="timeline-conteudo">
+            <h4>Bacharelado em Línguas Estrangeiras Aplicadas</h4>
+            <p class="instituicao">Universidade de Brasília — UnB</p>
+            <p>Combinação de expertise em linguística com lógica de programação. Base para atuação em times internacionais e comunicação técnica multilíngue.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Experiência Profissional -->
+      <h3 class="sub-titulo">Experiência Profissional</h3>
+      <div class="timeline">
+
+        <!-- Posição atual -->
+        <div class="timeline-item">
+          <div class="timeline-data">Nov/2025 — Presente</div>
+          <div class="timeline-conteudo">
+            <h4>Developer Experience Engineer &amp; DevRel</h4>
+            <p class="instituicao">Pluggy · Tempo integral · Remoto (São Paulo, Brasil)</p>
+            <p>Solutions Engineer / Developer Relations — atuando na experiência do desenvolvedor e na evangelização da plataforma Pluggy de Open Finance.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-data">Abr/2025 — Out/2025</div>
+          <div class="timeline-conteudo">
+            <h4>Desenvolvedora Frontend</h4>
+            <p class="instituicao">Núcleo de Excelência em Tecnologias Sociais (NEES) · Remoto (Alagoas, Brasil)</p>
+            <p>Contribuindo para a melhoria da educação pública brasileira por meio da tecnologia.</p>
+            <ul class="lista-bullet">
+              <li>Implementei MVP de plataforma educacional atendendo 5.000+ alunos, melhorando acessibilidade em 60%</li>
+              <li>Frontend com Next.js e ChakraUI — interfaces modernas e responsivas</li>
+              <li>Modelei base de dados em PostgreSQL suportando 10.000+ transações diárias com 99,9% de uptime</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-data">Ago/2023 — Nov/2024</div>
+          <div class="timeline-conteudo">
+            <h4>Desenvolvedora Frontend</h4>
+            <p class="instituicao">Sami Saúde — Maior HealthTech do Brasil (LinkedIn, 2023)</p>
+            <ul class="lista-bullet">
+              <li>Reduzi o tempo de carregamento de páginas em 30% com React.js e JavaScript moderno</li>
+              <li>Construí e mantive 15+ componentes React reutilizáveis, reduzindo tempo de dev em 25%</li>
+              <li>Integração com APIs RESTful para 20.000+ vidas vinculadas a 10.000 empresas</li>
+              <li>Code reviews diários — redução de 35% em bugs reportados no Q3 2024</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-data">2022 — 2023</div>
+          <div class="timeline-conteudo">
+            <h4>Engenheira de Suporte Técnico</h4>
+            <p class="instituicao">Boost Commerce PFS App</p>
+            <ul class="lista-bullet">
+              <li>Liderança técnica em equipe de 8 devs LATAM atendendo 14.000+ clientes globais</li>
+              <li>150+ tickets/mês com 95% de resolução no 1º contato</li>
+              <li>Tempo médio de resolução reduzido de 4h para 90 minutos</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-data">2018 — 2022</div>
+          <div class="timeline-conteudo">
+            <h4>Intérprete Simultânea</h4>
+            <p class="instituicao">Ministérios do Brasil</p>
+            <ul class="lista-bullet">
+              <li>Interpretação em 50+ eventos governamentais para audiências de 200–500 participantes</li>
+              <li>30+ conferências internacionais com 98% de taxa de precisão</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certificações e cursos complementares -->
+      <h3 class="sub-titulo">Certificações</h3>
+      <div class="cards-grid">
+
+        <div class="card-formacao">
+          <div class="card-icone">☁️</div>
+          <h4>AWS Certified Cloud Practitioner</h4>
+          <p>Certificação oficial Amazon Web Services em computação em nuvem</p>
+          <span class="badge">2023</span>
+        </div>
+
+        <div class="card-formacao">
+          <div class="card-icone">⚛️</div>
+          <h4>Frontend Career Path</h4>
+          <p>Bootcamp completo de desenvolvimento frontend com foco em React</p>
+          <span class="badge">Scrimba — 2021+</span>
+        </div>
+
+        <div class="card-formacao">
+          <div class="card-icone">🎓</div>
+          <h4>36+ Certificados — Alura</h4>
+          <p>Cursos de desenvolvimento web, backend, boas práticas e mais</p>
+          <span class="badge">345+ horas</span>
+        </div>
+
+      </div>
+
+      <!-- Competências técnicas -->
+      <h3 class="sub-titulo">Competências Técnicas</h3>
+      <div class="skills-grid">
+        <div class="skill-grupo">
+          <h4>Frontend</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">ChakraUI</span>
+            <span class="skill-tag">Design Responsivo</span>
+          </div>
+        </div>
+        <div class="skill-grupo">
+          <h4>Backend &amp; Infraestrutura</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">RabbitMQ</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQL / NoSQL</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="skill-grupo">
+          <h4>Práticas</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Code Review</span>
+            <span class="skill-tag">TDD</span>
+            <span class="skill-tag">Design Patterns</span>
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Sistemas Distribuídos</span>
+            <span class="skill-tag">Testes Automatizados</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Idiomas -->
+      <h3 class="sub-titulo">Idiomas</h3>
+      <div class="idiomas-grid">
+
+        <div class="idioma-item">
+          <div class="idioma-nome">Português</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Português — Língua Materna">
+            <div class="barra-preenchimento" style="width: 100%;"></div>
+          </div>
+          <span class="idioma-nivel">Língua Materna</span>
+        </div>
+
+        <div class="idioma-item">
+          <div class="idioma-nome">Inglês</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Inglês — Fluente">
+            <div class="barra-preenchimento" style="width: 95%;"></div>
+          </div>
+          <span class="idioma-nivel">Fluente</span>
+        </div>
+
+        <div class="idioma-item">
+          <div class="idioma-nome">Francês</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Francês — Fluente">
+            <div class="barra-preenchimento" style="width: 90%;"></div>
+          </div>
+          <span class="idioma-nivel">Fluente</span>
+        </div>
+
+        <div class="idioma-item">
+          <div class="idioma-nome">Espanhol</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Espanhol — Fluente">
+            <div class="barra-preenchimento" style="width: 90%;"></div>
+          </div>
+          <span class="idioma-nivel">Fluente</span>
+        </div>
+
+        <div class="idioma-item">
+          <div class="idioma-nome">Persa</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="Persa — Iniciante">
+            <div class="barra-preenchimento" style="width: 20%;"></div>
+          </div>
+          <span class="idioma-nivel">Iniciante</span>
+        </div>
+
+        <div class="idioma-item">
+          <div class="idioma-nome">LIBRAS</div>
+          <div class="barra-progresso" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="LIBRAS — Iniciante">
+            <div class="barra-preenchimento" style="width: 20%;"></div>
+          </div>
+          <span class="idioma-nivel">Iniciante</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SEÇÃO 3 — PORTFÓLIO
+       Projetos e trabalhos — GitHub
+       ================================================ -->
+  <section id="portfolio" class="secao secao-clara">
+    <div class="container">
+      <h2 class="secao-titulo">Portfólio</h2>
+      <p class="secao-subtitulo">Meus projetos ficam no GitHub — venha conferir!</p>
+
+      <!-- Card de destaque do GitHub -->
+      <div class="github-destaque">
+        <div class="github-info">
+          <div class="github-avatar">
+            <!-- Ícone do GitHub em SVG puro — sem dependências externas -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="48" height="48">
+              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="github-texto">
+            <h3>github.com/Opabby</h3>
+            <p>
+              Acesse meu GitHub para ver projetos de desenvolvimento web fullstack,
+              experimentos com React, Node.js, APIs e muito mais.
+            </p>
+            <div class="github-badges">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <a
+          href="https://github.com/Opabby"
+          class="btn-github"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver perfil no GitHub de Thaís Rodeiro"
+        >
+          Ver meu GitHub →
+        </a>
+      </div>
+
+      <!-- Cards de áreas de trabalho -->
+      <h3 class="sub-titulo-claro">Áreas de Atuação</h3>
+      <div class="portfolio-grid">
+
+        <article class="projeto-card">
+          <div class="projeto-imagem projeto-cor-1">
+            <span class="projeto-icone">🏫</span>
+          </div>
+          <div class="projeto-info">
+            <h3>EdTech — Educação Pública</h3>
+            <p>MVP de plataforma educacional para o NEES atendendo 5.000+ alunos de escolas públicas brasileiras.</p>
+            <div class="projeto-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">ChakraUI</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <a href="https://github.com/Opabby" class="btn-projeto" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+          </div>
+        </article>
+
+        <article class="projeto-card">
+          <div class="projeto-imagem projeto-cor-2">
+            <span class="projeto-icone">🏥</span>
+          </div>
+          <div class="projeto-info">
+            <h3>HealthTech — Sami Saúde</h3>
+            <p>Sistema de componentes React para gestão de planos de saúde, atendendo 20.000+ vidas vinculadas.</p>
+            <div class="projeto-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">REST APIs</span>
+            </div>
+            <a href="https://github.com/Opabby" class="btn-projeto" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+          </div>
+        </article>
+
+        <article class="projeto-card">
+          <div class="projeto-imagem projeto-cor-3">
+            <span class="projeto-icone">☁️</span>
+          </div>
+          <div class="projeto-info">
+            <h3>Infra &amp; Cloud</h3>
+            <p>Sistemas escaláveis na AWS com Docker e RabbitMQ, suportando mais de 20.000 usuários simultâneos.</p>
+            <div class="projeto-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">RabbitMQ</span>
+            </div>
+            <a href="https://github.com/Opabby" class="btn-projeto" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+          </div>
+        </article>
+
+        <article class="projeto-card">
+          <div class="projeto-imagem projeto-cor-4">
+            <span class="projeto-icone">🔧</span>
+          </div>
+          <div class="projeto-info">
+            <h3>Estudos &amp; Experimentos</h3>
+            <p>Projetos pessoais, desafios de código e estudos práticos com as tecnologias que estou aprendendo.</p>
+            <div class="projeto-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">SQL</span>
+              <span class="tag">CI/CD</span>
+            </div>
+            <a href="https://github.com/Opabby" class="btn-projeto" target="_blank" rel="noopener noreferrer">Ver no GitHub →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SEÇÃO 4 — CONTATO
+       Formulário com validação em JavaScript
+       ================================================ -->
+  <section id="contato" class="secao secao-escura">
+    <div class="container">
+      <h2 class="secao-titulo">Contato</h2>
+      <p class="secao-subtitulo">Tem alguma proposta ou quer bater um papo sobre tecnologia? Manda mensagem!</p>
+
+      <!-- Mensagem de sucesso — exibida via JavaScript após envio -->
+      <div id="mensagemSucesso" class="mensagem-sucesso" role="alert" aria-live="polite" hidden>
+        ✅ Mensagem enviada com sucesso! Entrarei em contato em breve.
+      </div>
+
+      <form id="formContato" class="form-contato" novalidate>
+
+        <!-- Campo: Nome -->
+        <div class="campo-grupo">
+          <label for="nome">Nome completo <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Seu nome completo"
+            maxlength="100"
+            autocomplete="name"
+          />
+          <span class="erro-msg" id="erroNome" role="alert" aria-live="assertive"></span>
+        </div>
+
+        <!-- Campo: E-mail -->
+        <div class="campo-grupo">
+          <label for="email">E-mail <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            maxlength="150"
+            autocomplete="email"
+          />
+          <span class="erro-msg" id="erroEmail" role="alert" aria-live="assertive"></span>
+        </div>
+
+        <!-- Campo: Mensagem -->
+        <div class="campo-grupo">
+          <label for="mensagem">Mensagem <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            placeholder="Escreva sua mensagem aqui..."
+            rows="6"
+            maxlength="1000"
+          ></textarea>
+          <span class="erro-msg" id="erroMensagem" role="alert" aria-live="assertive"></span>
+        </div>
+
+        <!-- Botão de envio -->
+        <button type="submit" class="btn-enviar" id="btnEnviar">
+          Enviar Mensagem
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ================================================
+       RODAPÉ
+       ================================================ -->
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2026 Thaís Rodeiro — Todos os direitos reservados.</p>
+      <p class="rodape-sub">Desenvolvido com HTML5, CSS3 e JavaScript puro.</p>
+    </div>
+  </footer>
+
+  <!-- Script principal carregado ao final do body -->
+  <script src="js/main.js"></script>
+</body>
+</html>

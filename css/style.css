@@ -1,0 +1,1000 @@
+/* ========================================================
+   style.css — Estilos do Portfólio — Thaís Rodeiro
+   Tecnologia: CSS3 puro (sem frameworks)
+   ======================================================== */
+
+/* --------------------------------------------------------
+   1. VARIÁVEIS GLOBAIS (CSS Custom Properties)
+   Facilita a manutenção de cores e espaçamentos
+   -------------------------------------------------------- */
+:root {
+  /* Paleta de cores */
+  --cor-primaria:    #2563eb;   /* Azul principal */
+  --cor-primaria-dk: #1d4ed8;  /* Azul escuro (hover) */
+  --cor-destaque:    #f59e0b;   /* Âmbar — destaques */
+  --cor-texto:       #1e293b;  /* Quase preto — texto principal */
+  --cor-texto-claro: #64748b;  /* Cinza médio — subtextos */
+  --cor-fundo-claro: #f8fafc;  /* Branco suave — seções claras */
+  --cor-fundo-escuro:#1e293b;  /* Azul-escuro — seções escuras */
+  --cor-branco:      #ffffff;
+  --cor-erro:        #dc2626;   /* Vermelho — mensagens de erro */
+  --cor-sucesso:     #16a34a;   /* Verde — mensagem de sucesso */
+
+  /* Tipografia */
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --tamanho-base:    1rem;      /* 16px */
+
+  /* Espaçamentos */
+  --espacamento-sm:  0.5rem;
+  --espacamento-md:  1rem;
+  --espacamento-lg:  2rem;
+  --espacamento-xl:  4rem;
+
+  /* Bordas */
+  --raio-borda:      0.5rem;
+  --raio-borda-lg:   1rem;
+
+  /* Sombras */
+  --sombra-card:     0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --sombra-elevada:  0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+
+  /* Transições */
+  --transicao:       0.3s ease;
+
+  /* Largura máxima do conteúdo */
+  --largura-max:     1100px;
+
+  /* Altura do navbar */
+  --altura-nav:      70px;
+}
+
+/* --------------------------------------------------------
+   2. RESET E BASE
+   Remove estilos padrão inconsistentes entre navegadores
+   -------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Scroll suave ao clicar nos links de navegação */
+  scroll-behavior: smooth;
+  /* Compensa o navbar fixo na âncora */
+  scroll-padding-top: var(--altura-nav);
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo-claro);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove marcadores das listas que estão dentro de navegação ou cards */
+ul, ol {
+  list-style: none;
+}
+
+/* Links sem sublinhado por padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --------------------------------------------------------
+   3. UTILITÁRIOS GERAIS
+   -------------------------------------------------------- */
+
+/* Container centralizado com largura máxima */
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding-inline: var(--espacamento-lg);
+}
+
+/* Texto de destaque em cor âmbar */
+.destaque {
+  color: var(--cor-primaria);
+}
+
+/* --------------------------------------------------------
+   4. NAVBAR — MENU DE NAVEGAÇÃO FIXO
+   Visível em todas as seções da página
+   -------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;                /* Garante que fique acima de tudo */
+  height: var(--altura-nav);
+  background-color: var(--cor-fundo-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--espacamento-lg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Logo/nome no canto esquerdo do navbar */
+.nav-logo a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+  letter-spacing: 0.5px;
+  transition: color var(--transicao);
+}
+
+.nav-logo a:hover {
+  color: var(--cor-destaque);
+}
+
+/* Lista de links de navegação */
+.nav-links {
+  display: flex;
+  gap: var(--espacamento-lg);
+  align-items: center;
+}
+
+.nav-link {
+  color: #cbd5e1;              /* Cinza claro */
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: var(--espacamento-sm) 0;
+  position: relative;
+  transition: color var(--transicao);
+}
+
+/* Sublinhado animado ao hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-destaque);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover,
+.nav-link.ativo {
+  color: var(--cor-branco);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  width: 100%;
+}
+
+/* Botão hambúrguer — visível apenas em telas pequenas */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cor-branco);
+  border-radius: 2px;
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+/* Animação do botão quando menu está aberto */
+.nav-toggle.aberto span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.nav-toggle.aberto span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.aberto span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------
+   5. SEÇÕES
+   -------------------------------------------------------- */
+.secao {
+  /* Padding superior compensa o navbar fixo */
+  padding-top: calc(var(--altura-nav) + var(--espacamento-xl));
+  padding-bottom: var(--espacamento-xl);
+}
+
+/* Alterna entre fundo claro e escuro */
+.secao-clara {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-texto);
+}
+
+.secao-escura {
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-branco);
+}
+
+/* Título principal de cada seção */
+.secao-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--espacamento-lg);
+  position: relative;
+  padding-bottom: var(--espacamento-md);
+}
+
+/* Linha decorativa abaixo do título */
+.secao-titulo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--cor-primaria);
+  border-radius: 2px;
+}
+
+.secao-escura .secao-titulo::after {
+  background-color: var(--cor-destaque);
+}
+
+/* Subtítulo descritivo abaixo do título da seção */
+.secao-subtitulo {
+  text-align: center;
+  color: var(--cor-texto-claro);
+  margin-bottom: var(--espacamento-xl);
+  font-size: 1.05rem;
+}
+
+.secao-escura .secao-subtitulo {
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------
+   6. SEÇÃO SOBRE MIM
+   -------------------------------------------------------- */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espacamento-xl);
+  align-items: start;
+  margin-top: var(--espacamento-lg);
+}
+
+/* Foto de perfil real */
+.foto-perfil {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 0 0 5px var(--cor-primaria), var(--sombra-elevada);
+  flex-shrink: 0;
+}
+
+.sobre-foto {
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-texto h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--espacamento-md);
+  color: var(--cor-texto);
+}
+
+.sobre-texto p {
+  color: var(--cor-texto-claro);
+  margin-bottom: var(--espacamento-md);
+  line-height: 1.8;
+}
+
+/* Lista de informações pessoais */
+.info-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-lg);
+  list-style: none;
+}
+
+.info-lista li {
+  font-size: 0.95rem;
+  color: var(--cor-texto-claro);
+}
+
+.info-lista strong {
+  color: var(--cor-texto);
+}
+
+/* Grid de hobbies */
+.hobbies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+}
+
+.hobby-card {
+  background-color: var(--cor-branco);
+  border: 2px solid #e2e8f0;
+  border-radius: var(--raio-borda);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+  transition: border-color var(--transicao), transform var(--transicao);
+  cursor: default;
+}
+
+.hobby-card:hover {
+  border-color: var(--cor-primaria);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------
+   7. SEÇÃO FORMAÇÃO
+   -------------------------------------------------------- */
+.sub-titulo {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: var(--espacamento-xl);
+  margin-bottom: var(--espacamento-lg);
+  color: var(--cor-branco);
+  border-left: 4px solid var(--cor-destaque);
+  padding-left: var(--espacamento-md);
+}
+
+/* Timeline vertical */
+.timeline {
+  position: relative;
+  padding-left: var(--espacamento-xl);
+}
+
+/* Linha vertical central da timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #334155;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--espacamento-lg);
+}
+
+/* Marcador circular na timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--espacamento-xl) + 4px);
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--cor-destaque);
+  border: 2px solid var(--cor-fundo-escuro);
+}
+
+.timeline-data {
+  font-size: 0.85rem;
+  color: var(--cor-destaque);
+  font-weight: 600;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.timeline-conteudo {
+  background-color: #293548;
+  border-radius: var(--raio-borda);
+  padding: var(--espacamento-md);
+}
+
+.timeline-conteudo h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-branco);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.timeline-conteudo p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.instituicao {
+  color: var(--cor-primaria) !important;
+  font-weight: 500;
+}
+
+/* Grid de cards de cursos */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espacamento-md);
+  margin-bottom: var(--espacamento-lg);
+}
+
+.card-formacao {
+  background-color: #293548;
+  border-radius: var(--raio-borda-lg);
+  padding: var(--espacamento-lg);
+  text-align: center;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  border: 1px solid #334155;
+}
+
+.card-formacao:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-elevada);
+}
+
+.card-icone {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.card-formacao h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-branco);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.card-formacao p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: var(--espacamento-md);
+}
+
+/* Badge com duração e ano */
+.badge {
+  display: inline-block;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px var(--espacamento-sm);
+  border-radius: 999px;
+}
+
+/* Grid de idiomas com barras de progresso */
+.idiomas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  max-width: 600px;
+}
+
+.idioma-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items: center;
+  gap: var(--espacamento-md);
+}
+
+.idioma-nome {
+  font-weight: 600;
+  color: var(--cor-branco);
+}
+
+/* Barra de progresso acessível */
+.barra-progresso {
+  height: 8px;
+  background-color: #334155;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-preenchimento {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-destaque));
+  border-radius: 999px;
+  transition: width 1s ease;
+}
+
+.idioma-nivel {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------
+   8. SEÇÃO PORTFÓLIO
+   -------------------------------------------------------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--espacamento-lg);
+  margin-top: var(--espacamento-lg);
+}
+
+/* Card de projeto */
+.projeto-card {
+  background-color: var(--cor-branco);
+  border-radius: var(--raio-borda-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  display: flex;
+  flex-direction: column;
+}
+
+.projeto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-elevada);
+}
+
+/* Área colorida superior do card */
+.projeto-imagem {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Variações de cores para os cards */
+.projeto-cor-1 { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+.projeto-cor-2 { background: linear-gradient(135deg, #059669, #0891b2); }
+.projeto-cor-3 { background: linear-gradient(135deg, #d97706, #dc2626); }
+.projeto-cor-4 { background: linear-gradient(135deg, #7c3aed, #db2777); }
+
+.projeto-icone {
+  font-size: 3rem;
+}
+
+.projeto-info {
+  padding: var(--espacamento-lg);
+  flex: 1;                     /* Faz os cards terem mesma altura */
+  display: flex;
+  flex-direction: column;
+}
+
+.projeto-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.projeto-info p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-claro);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Tags de tecnologia */
+.projeto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+  margin: var(--espacamento-md) 0;
+}
+
+.tag {
+  background-color: #eff6ff;
+  color: var(--cor-primaria);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+}
+
+/* Botão de link do projeto */
+.btn-projeto {
+  display: inline-block;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: auto;
+  transition: color var(--transicao), letter-spacing var(--transicao);
+}
+
+.btn-projeto:hover {
+  color: var(--cor-primaria-dk);
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------
+   9. SEÇÃO CONTATO — FORMULÁRIO
+   -------------------------------------------------------- */
+.form-contato {
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-lg);
+}
+
+/* Grupo: label + input/textarea + mensagem de erro */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+}
+
+.campo-grupo label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Asterisco de campo obrigatório */
+.obrigatorio {
+  color: var(--cor-destaque);
+  margin-left: 2px;
+}
+
+/* Estilos comuns para inputs e textarea */
+.campo-grupo input,
+.campo-grupo textarea {
+  width: 100%;
+  padding: 0.75rem var(--espacamento-md);
+  font-size: var(--tamanho-base);
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+  background-color: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--raio-borda);
+  transition: border-color var(--transicao), background-color var(--transicao);
+  outline: none;
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus {
+  border-color: var(--cor-primaria);
+  background-color: var(--cor-branco);
+}
+
+/* Estado de erro — borda vermelha */
+.campo-grupo input.campo-erro,
+.campo-grupo textarea.campo-erro {
+  border-color: var(--cor-erro);
+  background-color: #fef2f2;
+}
+
+/* Estado válido — borda verde */
+.campo-grupo input.campo-valido,
+.campo-grupo textarea.campo-valido {
+  border-color: var(--cor-sucesso);
+}
+
+.campo-grupo textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Mensagem de erro abaixo do campo */
+.erro-msg {
+  font-size: 0.82rem;
+  color: var(--cor-erro);
+  min-height: 1.2em;          /* Evita salto de layout */
+  font-weight: 500;
+}
+
+/* Botão de envio */
+.btn-enviar {
+  align-self: flex-start;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: var(--raio-borda);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--fonte-principal);
+  cursor: pointer;
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-primaria-dk);
+  transform: translateY(-2px);
+}
+
+.btn-enviar:active {
+  transform: translateY(0);
+}
+
+/* Botão desativado durante envio */
+.btn-enviar:disabled {
+  background-color: #64748b;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Caixa de mensagem de sucesso (exibida via JS) */
+.mensagem-sucesso {
+  background-color: #dcfce7;
+  border: 2px solid #86efac;
+  color: #15803d;
+  border-radius: var(--raio-borda);
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--espacamento-lg);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------
+   10. LINKS INLINE (dentro de listas de info)
+   -------------------------------------------------------- */
+.link-inline {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  transition: color var(--transicao);
+}
+
+.link-inline:hover {
+  color: var(--cor-primaria-dk);
+}
+
+/* --------------------------------------------------------
+   11. LISTA COM BULLETS (experiência profissional)
+   -------------------------------------------------------- */
+.lista-bullet {
+  list-style: disc;
+  padding-left: var(--espacamento-lg);
+  margin-top: var(--espacamento-sm);
+}
+
+.lista-bullet li {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------
+   12. GRID DE SKILLS TÉCNICAS
+   -------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--espacamento-lg);
+  margin-bottom: var(--espacamento-lg);
+}
+
+.skill-grupo {
+  background-color: #293548;
+  border-radius: var(--raio-borda-lg);
+  padding: var(--espacamento-lg);
+  border: 1px solid #334155;
+}
+
+.skill-grupo h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--espacamento-md);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+}
+
+.skill-tag {
+  background-color: #334155;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #475569;
+}
+
+/* --------------------------------------------------------
+   13. SUBTÍTULO EM SEÇÃO CLARA (portfólio)
+   -------------------------------------------------------- */
+.sub-titulo-claro {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: var(--espacamento-xl);
+  margin-bottom: var(--espacamento-lg);
+  color: var(--cor-texto);
+  border-left: 4px solid var(--cor-primaria);
+  padding-left: var(--espacamento-md);
+}
+
+/* --------------------------------------------------------
+   14. CARD DE DESTAQUE DO GITHUB
+   -------------------------------------------------------- */
+.github-destaque {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 2px solid #334155;
+  border-radius: var(--raio-borda-lg);
+  padding: var(--espacamento-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-lg);
+  margin-top: var(--espacamento-lg);
+  flex-wrap: wrap;
+  box-shadow: var(--sombra-elevada);
+}
+
+.github-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-lg);
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.github-avatar {
+  color: var(--cor-branco);
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.github-texto h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.github-texto p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: var(--espacamento-md);
+  max-width: 500px;
+}
+
+.github-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+}
+
+/* Botão de link para o GitHub */
+.btn-github {
+  display: inline-block;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--raio-borda);
+  white-space: nowrap;
+  transition: background-color var(--transicao), transform var(--transicao);
+  flex-shrink: 0;
+}
+
+.btn-github:hover {
+  background-color: var(--cor-primaria-dk);
+  transform: translateY(-2px);
+}
+
+.rodape {
+  background-color: #0f172a;
+  color: #64748b;
+  text-align: center;
+  padding: var(--espacamento-lg);
+  font-size: 0.9rem;
+}
+
+.rodape-sub {
+  margin-top: var(--espacamento-sm);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------
+   11. RESPONSIVIDADE — MEDIA QUERIES
+   Design adaptado para telas menores (mobile-first)
+   -------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Exibe o botão hambúrguer */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Menu escondido por padrão em mobile */
+  .nav-links {
+    position: fixed;
+    top: var(--altura-nav);
+    left: 0;
+    right: 0;
+    background-color: var(--cor-fundo-escuro);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--espacamento-lg);
+    gap: var(--espacamento-md);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transicao), opacity var(--transicao);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
+  /* Menu aberto — controlado via JavaScript */
+  .nav-links.aberto {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Sobre Mim: layout em coluna única */
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .sobre-foto {
+    justify-content: center;
+  }
+
+  .hobbies-grid {
+    justify-content: center;
+  }
+
+  .info-lista {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  /* Idiomas: layout em coluna */
+  .idioma-item {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-sm);
+  }
+
+  /* Botão de envio ocupa largura total */
+  .btn-enviar {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Títulos menores em mobile */
+  .secao-titulo {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--espacamento-md);
+  }
+
+  .foto-placeholder {
+    width: 130px;
+    height: 130px;
+    font-size: 2rem;
+  }
+}
